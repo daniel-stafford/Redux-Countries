@@ -4,13 +4,27 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Installation
 You should use either `npm` or `yarn` but not both. It's recommeded to use `yarn`
 
-You'll need to install at least following packages:
+This template already comes with all needed packages. In case you want to install manually, check the dependencies in `package.json` file. To install, run:
 ```
-yarn add redux react-redux redux-thunk redux-saga @types/react-redux @types/redux-thunk @types/redux-saga react-router-dom @types/react-router-dom
+yarn install
 ```
 
+## Features
+* Redux
+* Redux-thunk
+* Redux-saga
+* React-router
+
+The template comes with ready-made code for a very simple working demo (products list). To play around with it, run:
+```
+yarn start
+```
+
+## Modify or add new features
+Follow the file/folder structure as explained below to make necessary changes. For Redux, most of the time, you can copy existing files, modify something in there to make a new feature.
+
 ## Folder structure
-* `src/components`: For React components. For each component, it's better to put it in a separate folder. For example:
+* `src/components`: React components. For each component, it's better to put it in a separate folder. For example:
   ```
   src/components/Button/index.tsx
   src/components/Button/Button.scss
@@ -18,16 +32,17 @@ yarn add redux react-redux redux-thunk redux-saga @types/react-redux @types/redu
   src/components/Button/Button.test.tsx
   ```
 
-* `src/hooks`: This is for custom hooks. For example:
+* `src/hooks`: Custom hooks. For example:
   ```
   src/hooks/useCountries.ts
   src/hooks/useUser.ts
   ```
 
-* `src/redux`: This is for everything (such as actions, reducers, sagas etc) related to Redux
+* `src/redux`: Everything (such as actions, reducers, sagas etc) related to Redux
   * `src/redux/actions`: For Redux actions
   * `src/redux/reducers`: For Redux reducers
   * `src/redux/sagas`: For Redux sagas
+  * `src/redux/store.ts`: The Redux store
 
   If there are multiple un-related features, split action/reducer/saga into different files. For example:
   ```
@@ -46,7 +61,7 @@ yarn add redux react-redux redux-thunk redux-saga @types/react-redux @types/redu
   src/redux/sagas/ui.ts
   ```
 
-* `src/pages`: For different pages (views) when using [React router](https://reacttraining.com/react-router/web/guides/quick-start). For example:
+* `src/pages`: Pages (or views) when using [React router](https://reacttraining.com/react-router/web/guides/quick-start). For example:
   ```
   src/pages/Home.tsx
   src/pages/Product.tsx
@@ -58,6 +73,8 @@ yarn add redux react-redux redux-thunk redux-saga @types/react-redux @types/redu
   ```
 
 * `src/types.ts`: TypeScript's type definitions. For small apps, you can put definitions of all types, interfaces etc and even Redux's actions, action creators, states here.
+
+* `src/Routes.tsx`: Defines all the React router routes to different pages.
 
 This template is suitable for rather small apps. For bigger apps, a better & more organized way is to split the folder structure into features, something like:
   ```
