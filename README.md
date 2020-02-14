@@ -14,6 +14,9 @@ yarn install
 * Redux-thunk
 * Redux-saga
 * React-router
+* Prettier
+* ESLint
+* Husky & lint-staged
 
 The template comes with ready-made code for a very simple working demo (products list). To play around with it, run:
 ```
