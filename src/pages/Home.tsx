@@ -16,8 +16,7 @@ export default function Home() {
   const products = useSelector((state: AppState) => state.product.inCart)
 
   useEffect(() => {
-    console.log('use effect is running')
-    dispatch(fetchCountriesFromAPI)
+    dispatch(fetchCountriesFromAPI()) //I literally spent an hour debugging because I forgot to call this function.
   }, [dispatch])
 
   const countries = useSelector((state: AppState) => state.country.allCountries)
