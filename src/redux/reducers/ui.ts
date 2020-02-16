@@ -1,8 +1,4 @@
-import {
-  TOGGLE_DIALOG,
-  UiState,
-  UiActions,
-} from '../../types'
+import { TOGGLE_DIALOG, UiState, UiActions } from '../../types'
 
 const defaultState: UiState = {
   dialogOpen: {},
@@ -10,7 +6,7 @@ const defaultState: UiState = {
 
 export default function ui(
   state: UiState = defaultState,
-  action: UiActions
+  action: UiActions,
 ): UiState {
   switch (action.type) {
     case TOGGLE_DIALOG: {
@@ -18,7 +14,7 @@ export default function ui(
         ...state,
         dialogOpen: {
           ...state.dialogOpen,
-          [action.payload.dialog]: !(state.dialogOpen[action.payload.dialog])
+          [action.payload.dialog]: !state.dialogOpen[action.payload.dialog],
         },
       }
     }
@@ -27,4 +23,3 @@ export default function ui(
       return state
   }
 }
-

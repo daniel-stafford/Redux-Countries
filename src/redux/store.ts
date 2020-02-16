@@ -10,6 +10,10 @@ const initState: AppState = {
   product: {
     inCart: [],
   },
+  country: {
+    allCountries: [],
+    filteredCountries: [],
+  },
   ui: {
     dialogOpen: {},
   },
@@ -29,7 +33,7 @@ export default function makeStore(initialState = initState) {
   const store = createStore(
     createRootReducer(),
     initialState,
-    composeEnhancers(applyMiddleware(...middlewares))
+    composeEnhancers(applyMiddleware(...middlewares)),
   )
 
   sagaMiddleware.run(rootSaga)
