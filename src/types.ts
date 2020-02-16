@@ -18,6 +18,7 @@ export type Country = {
   population: number
   region: string
   nativeName: string
+  alpha2Code: string
 }
 
 export type Languages = {

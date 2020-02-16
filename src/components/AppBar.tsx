@@ -7,13 +7,17 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import Badge from '@material-ui/core/Badge'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+
+import Search from 'components/Search'
+
 const AppBar = () => {
   return (
     <Bar position="static">
       <Toolbar>
         <Typography variant="h6" noWrap>
-          Rest Countries API
+          Countries API
         </Typography>
+        <Search />
         <IconButton
           aria-label="show countries in shopping cart"
           color="inherit"

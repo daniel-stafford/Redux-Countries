@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { TableCell, Link as MaterialLink } from '@material-ui/core/'
+import { TableCell } from '@material-ui/core/'
 
 import Flag from 'components/Flag'
 import { Country } from 'types'
@@ -17,10 +17,9 @@ const TableRow = ({ country }: TableRowProps) => {
         <Flag url={country.flag} countryName={country.name} />
       </TableCell>
       <TableCell>
-        <MaterialLink></MaterialLink>
         <Link
           to={{
-            pathname: `/country/${country.name.replace(/\s/g, '')}`,
+            pathname: `/country/${country.alpha2Code}`,
             state: { country },
           }}
         >

@@ -5,8 +5,6 @@ import { Typography } from '@material-ui/core'
 import BackButton from 'components/BackButton'
 import Flag from 'components/Flag'
 
-import { Country } from 'types'
-
 const CountryDetails = () => {
   console.log(
     'useParms',
@@ -16,10 +14,9 @@ const CountryDetails = () => {
     'useHistory',
     useHistory(),
   )
-
   const history = useHistory()
   const location: any = useLocation()
-  const country: Country = location.state.country
+  const country = location.state.country
   return (
     <>
       <Typography variant="h1">{country.name}</Typography>
