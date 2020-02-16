@@ -7,9 +7,6 @@ import createRootReducer from './reducers'
 import rootSaga from './sagas'
 
 const initState: AppState = {
-  product: {
-    inCart: [],
-  },
   country: {
     allCountries: [],
     filteredCountries: [],

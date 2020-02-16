@@ -24,27 +24,6 @@ export type Languages = {
   name: string
 }
 
-// A product
-export type Product = {
-  id: string
-  name: string
-  price: number
-}
-
-export type AddProductAction = {
-  type: typeof ADD_PRODUCT
-  payload: {
-    product: Product
-  }
-}
-
-export type RemoveProductAction = {
-  type: typeof REMOVE_PRODUCT
-  payload: {
-    product: Product
-  }
-}
-
 export type FetchCountriesAction = {
   type: typeof FETCH_COUNTRIES
   payload: Country[]
@@ -59,14 +38,7 @@ export type ToggleDialogAction = {
 
 export type UiActions = ToggleDialogAction
 
-// Use this union in reducer
-export type ProductActions = AddProductAction | RemoveProductAction
-
 export type CountryActions = FetchCountriesAction
-
-export type ProductState = {
-  inCart: Product[]
-}
 
 export type CountryState = {
   allCountries: Country[]
@@ -81,7 +53,6 @@ export type UiState = {
 }
 
 export type AppState = {
-  product: ProductState
   country: CountryState
   ui: UiState
 }

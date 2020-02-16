@@ -10,29 +10,10 @@ export function fetchCountries(data: Country[]): CountryActions {
   }
 }
 
-// Async action processed by redux-thunk middleware
-// export function fetchCountriesFromAPI() {
-//   console.log('fetchCountriesFromAPI running')
-//   return function(dispatch: Dispatch) {
-//     console.log('logging inside fetchCountries')
-//     return fetch(`https://restcountries.eu/rest/v2/all`)
-//       .then(resp => resp.json())
-//       .then(data => {
-//         dispatch(fetchCountries(data))
-//       })
-//   }
-// }
-
 export function fetchCountriesFromAPI() {
-  return function(dispatch: Dispatch) {
-    console.log('inside fetch api')
-    return fetch(`https://restcountries.eu/rest/v2/all`)
-      .then(
-        response => response.json(),
-        error => console.log('An error occurred.', error),
-      )
-      .then(json => {
-        dispatch(fetchCountries(json))
-      })
+  return async function(dispatch: Dispatch) {
+    const res = await fetch(`https://restcountries.eu/rest/v2/all`)
+    const data = await res.json()
+    return dispatch(fetchCountries(data))
   }
 }

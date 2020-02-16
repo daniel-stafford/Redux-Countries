@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+
+a {
+  color: darkblue;
+  font-weight: bolder;
+  text-decoration: none;
+}
