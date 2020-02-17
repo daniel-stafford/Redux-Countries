@@ -11,8 +11,10 @@ import { useSelector } from 'react-redux'
 
 import Search from 'components/Search'
 import { AppState } from 'types'
+import useCart from 'hooks/useCart'
 
 const AppBar = () => {
+  useCart()
   const { cart } = useSelector((state: AppState) => state.cart)
   return (
     <Bar position="static">

@@ -3,6 +3,7 @@ import {
   CartActions,
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  FETCH_CART,
 } from '../../types'
 
 export default function cart(
@@ -12,6 +13,9 @@ export default function cart(
   action: CartActions,
 ): CartState {
   switch (action.type) {
+    case FETCH_CART: {
+      return state
+    }
     case ADD_TO_CART: {
       const { country } = action.payload
       if (state.cart.find(c => c.name === country.name)) {

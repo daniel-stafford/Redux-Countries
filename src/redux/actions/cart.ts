@@ -3,7 +3,14 @@ import {
   REMOVE_FROM_CART,
   CartActions,
   Country,
+  FETCH_CART,
 } from '../../types'
+
+export function fetchCart(): CartActions {
+  return {
+    type: FETCH_CART,
+  }
+}
 
 export function addToCart(country: Country): CartActions {
   return {
