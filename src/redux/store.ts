@@ -14,6 +14,9 @@ const initState: AppState = {
   ui: {
     dialogOpen: {},
   },
+  cart: {
+    cart: [],
+  },
 }
 
 export default function makeStore(initialState = initState) {

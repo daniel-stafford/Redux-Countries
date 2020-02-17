@@ -7,22 +7,25 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import Badge from '@material-ui/core/Badge'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import { useSelector } from 'react-redux'
 
 import Search from 'components/Search'
+import { AppState } from 'types'
 
 const AppBar = () => {
+  const { cart } = useSelector((state: AppState) => state.cart)
   return (
     <Bar position="static">
       <Toolbar>
         <Typography variant="h6" noWrap>
-          Countries API
+          Redux Fun!
         </Typography>
         <Search />
         <IconButton
           aria-label="show countries in shopping cart"
           color="inherit"
         >
-          <Badge badgeContent={5} color="secondary">
+          <Badge badgeContent={cart.length} color="secondary">
             <Link
               to={{
                 pathname: `/basket/`,

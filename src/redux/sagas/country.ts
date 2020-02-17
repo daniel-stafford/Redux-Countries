@@ -1,9 +1,16 @@
-import { takeLatest } from 'redux-saga/effects'
+import { takeLatest, takeEvery } from 'redux-saga/effects'
 
 import { CountryActions, FETCH_COUNTRIES } from '../../types'
 
-function* doSomethingWhenDataChanges(action: CountryActions) {
-  yield localStorage.setItem('allCountries', JSON.stringify(action.payload))
-}
+export function* setLocalStorageWhenAddingCountry() {
+  yield takeEvery(FETCH_COUNTRIES, function*(action: CountryActions) {
+    console.log('country saga running')
 
-export default [takeLatest(FETCH_COUNTRIES, doSomethingWhenDataChanges)]
+    yield localStorage.setItem('allCountries', JSON.stringify(action.payload))
+    yield localStorage.setItem(
+      'filteredCountries',
+      JSON.stringify(action.payload),
+    )
+  })
+}
+export default [takeLatest('*', setLocalStorageWhenAddingCountry)]

@@ -1,22 +1,22 @@
 import React from 'react'
-import { useParams, useLocation, useHistory } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { Typography } from '@material-ui/core'
 
 import BackButton from 'components/BackButton'
 import Flag from 'components/Flag'
+import { useSelector } from 'react-redux'
+import { AppState } from 'types'
+import useCountries from 'hooks/useCountries'
 
 const CountryDetails = () => {
-  console.log(
-    'useParms',
-    useParams(),
-    'useLocation',
-    useLocation(),
-    'useHistory',
-    useHistory(),
-  )
+  useCountries()
+  const { name } = useParams()
   const history = useHistory()
-  const location: any = useLocation()
-  const country = location.state.country
+  const [country] = useSelector(
+    (state: AppState) => state.country.allCountries,
+  ).filter(c => c.name === name)
+
+  if (!country) return <p>Loading...</p>
   return (
     <>
       <Typography variant="h1">{country.name}</Typography>

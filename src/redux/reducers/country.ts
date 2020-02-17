@@ -7,11 +7,13 @@ export default function country(
   },
   action: CountryActions,
 ): CountryState {
-  console.log('country reducer running', action.type)
   switch (action.type) {
     case FETCH_COUNTRIES:
-      console.log('fetch countries case running', action)
-      return { ...state, allCountries: action.payload }
+      return {
+        ...state,
+        allCountries: action.payload,
+        filteredCountries: action.payload,
+      }
     default:
       return state
   }
