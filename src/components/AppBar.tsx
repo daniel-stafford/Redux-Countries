@@ -15,7 +15,7 @@ import useCart from 'hooks/useCart'
 
 const AppBar = () => {
   useCart()
-  const { cart } = useSelector((state: AppState) => state.cart)
+  const { inCart } = useSelector((state: AppState) => state.cart)
   return (
     <Bar position="static">
       <Toolbar>
@@ -27,7 +27,7 @@ const AppBar = () => {
           aria-label="show countries in shopping cart"
           color="inherit"
         >
-          <Badge badgeContent={cart.length} color="secondary">
+          <Badge badgeContent={inCart.length} color="secondary">
             <Link
               to={{
                 pathname: `/basket/`,

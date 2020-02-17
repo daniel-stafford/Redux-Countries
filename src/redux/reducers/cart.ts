@@ -8,27 +8,30 @@ import {
 
 export default function cart(
   state: CartState = {
-    cart: [],
+    inCart: [],
   },
   action: CartActions,
 ): CartState {
   switch (action.type) {
     case FETCH_CART: {
-      return state
+      return {
+        ...state,
+        inCart: action.payload,
+      }
     }
     case ADD_TO_CART: {
       const { country } = action.payload
-      if (state.cart.find(c => c.name === country.name)) {
+      if (state.inCart.find(c => c.name === country.name)) {
         return state
       }
-      return { ...state, cart: [...state.cart, country] }
+      return { ...state, inCart: [...state.inCart, country] }
     }
     case REMOVE_FROM_CART: {
       const { country } = action.payload
-      const index = state.cart.findIndex(c => c.name === country.name)
+      const index = state.inCart.findIndex(c => c.name === country.name)
       if (index >= 0) {
-        state.cart.splice(index, 1)
-        return { ...state, cart: [...state.cart] }
+        state.inCart.splice(index, 1)
+        return { ...state, inCart: [...state.inCart] }
       }
       return state
     }

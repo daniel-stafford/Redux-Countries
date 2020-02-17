@@ -15,7 +15,7 @@ const initState: AppState = {
     dialogOpen: {},
   },
   cart: {
-    cart: [],
+    inCart: [],
   },
 }
 

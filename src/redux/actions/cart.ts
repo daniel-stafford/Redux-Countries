@@ -1,14 +1,18 @@
+import { Dispatch } from 'redux'
+
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CartActions,
   Country,
   FETCH_CART,
+  CountryInCart,
 } from '../../types'
 
-export function fetchCart(): CartActions {
+export function fetchCart(cart: CountryInCart[]): CartActions {
   return {
     type: FETCH_CART,
+    payload: cart,
   }
 }
 
@@ -23,5 +27,13 @@ export function removeCart(country: Country): CartActions {
   return {
     type: REMOVE_FROM_CART,
     payload: { country },
+  }
+}
+
+export function fetchCartThunk() {
+  return async function(dispatch: Dispatch) {
+    const storedCart = localStorage.getItem('cart') || ''
+    if (!!storedCart) return dispatch(fetchCart(JSON.parse(storedCart)))
+    return dispatch(fetchCart([]))
   }
 }

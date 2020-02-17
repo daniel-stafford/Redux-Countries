@@ -26,7 +26,7 @@ export type Languages = {
   name: string
 }
 
-export type CountyInCart = {
+export type CountryInCart = {
   flag: string
   name: string
   population: number
@@ -40,6 +40,7 @@ export type FetchCountriesAction = {
 
 export type FetchCartAction = {
   type: typeof FETCH_CART
+  payload: CountryInCart[]
 }
 
 export type AddToCartAction = {
@@ -74,7 +75,7 @@ export type CountryState = {
 }
 
 export type CartState = {
-  cart: CountyInCart[]
+  inCart: CountryInCart[] //TODO: FIX TYPO!!!!!!!!!
 }
 
 // Using dynamic keys from an enum

@@ -10,11 +10,11 @@ import { removeCart } from '../redux/actions'
 const Basket = () => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const { cart } = useSelector((state: AppState) => state.cart)
+  const { inCart } = useSelector((state: AppState) => state.cart)
 
   return (
     <>
-      {cart.map(item => (
+      {inCart.map(item => (
         <li key={item.name}>
           <Flag url={item.flag} countryName={item.name} />
           {item.name}
