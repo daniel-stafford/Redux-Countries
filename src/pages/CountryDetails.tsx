@@ -5,16 +5,16 @@ import { Typography } from '@material-ui/core'
 import BackButton from 'components/BackButton'
 import Flag from 'components/Flag'
 import { useSelector } from 'react-redux'
+import useCountries from 'hooks/useCountries'
 import { AppState } from 'types'
 
 const CountryDetails = () => {
+  useCountries()
   const { name } = useParams()
   const history = useHistory()
   const [country] = useSelector(
     (state: AppState) => state.country.allCountries,
   ).filter(c => c.name === name)
-
-  if (!country) return <p>Loading...</p>
   return (
     <>
       <Typography variant="h1">{country.name}</Typography>

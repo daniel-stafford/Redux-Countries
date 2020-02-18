@@ -1,25 +1,32 @@
-import React from 'react'
-import { CssBaseline } from '@material-ui/core'
-// import { ThemeProvider } from '@material-ui/styles'
+import React, { useState } from 'react'
+import { CssBaseline, createMuiTheme } from '@material-ui/core'
+import { ThemeProvider } from '@material-ui/styles'
 
 import Routes from './Routes'
-// import { darkTheme, lightTheme } from 'context'
+import { ThemeContext, themes } from 'themes'
+import 'styles/index.css'
 
-export default function App() {
-  // const [context, setContext] = useState({
-  //   theme: darkTheme,
-  //   switchTheme: () => {
-  //     setContext(current => ({
-  //       ...current,
-  //       theme: current.theme === darkTheme ? lightTheme : darkTheme,
-  //     }))
-  //   },
-  // })
+const App = () => {
+  const [themeContext, setThemeContext] = useState({
+    theme: themes.dark,
+    switchTheme: () => {
+      setThemeContext(current => ({
+        ...current,
+        theme: current.theme === themes.dark ? themes.light : themes.dark,
+      }))
+    },
+  })
 
   return (
     <>
-      <CssBaseline />
-      <Routes />
+      <ThemeContext.Provider value={themeContext}>
+        <ThemeProvider theme={createMuiTheme(themeContext.theme)}>
+          <Routes />
+          <CssBaseline />
+        </ThemeProvider>
+      </ThemeContext.Provider>
     </>
   )
 }
+
+export default App

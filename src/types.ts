@@ -6,7 +6,6 @@ export const FILTER_COUNTRIES = 'FILTER_COUNTRIES'
 export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
-export const FETCH_CART = 'FETCH_CART'
 
 export enum DialogType {
   SignIn = 'signIn',
@@ -27,23 +26,8 @@ export type Languages = {
   name: string
 }
 
-// export type CountryInCart = {
-//   flag: string
-//   name: string
-//   population: number
-//   languages: Languages[]
-//   region: string
-//   nativeName: string
-//   alpha2Code: string
-// }
-
 export type FetchCountriesAction = {
   type: typeof FETCH_COUNTRIES
-  payload: Country[]
-}
-
-export type FetchCartAction = {
-  type: typeof FETCH_CART
   payload: Country[]
 }
 
@@ -73,10 +57,7 @@ export type UiActions = ToggleDialogAction
 
 export type CountryActions = FetchCountriesAction | FilterCountriesAction
 
-export type CartActions =
-  | AddToCartAction
-  | RemoveFromCartAction
-  | FetchCartAction
+export type CartActions = AddToCartAction | RemoveFromCartAction
 
 export type CountryState = {
   allCountries: Country[]

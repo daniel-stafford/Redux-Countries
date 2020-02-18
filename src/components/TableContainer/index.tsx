@@ -7,7 +7,6 @@ import {
   TableRow as Row,
   TableBody,
 } from '@material-ui/core/'
-// import TableHeader from 'components/TableHeader'
 
 import TableRow from 'components/TableRow'
 import TableHeader from 'components/TableHeader'

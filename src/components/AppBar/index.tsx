@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { default as Bar } from '@material-ui/core/AppBar'
 import { Link } from 'react-router-dom'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -10,6 +9,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import { useSelector } from 'react-redux'
 
 import Search from 'components/Search'
+import ThemeToggle from 'components/ThemeToggle'
 import { AppState } from 'types'
 import 'components/AppBar/index.css'
 
@@ -19,14 +19,21 @@ const AppBar = () => {
     <Bar position="sticky">
       <Toolbar className="appbar">
         <div className="appbar__left-group">
-          <Typography variant="h5" noWrap>
-            REDUX TORTURE
-          </Typography>
+          <Link
+            to={{
+              pathname: `/`,
+            }}
+          >
+            <Typography variant="h5" noWrap>
+              Country API
+            </Typography>
+          </Link>
+
           <div className="appbar__search">
             <Search />
           </div>
         </div>
-
+        <ThemeToggle />
         <IconButton
           aria-label="show countries in shopping cart"
           color="inherit"

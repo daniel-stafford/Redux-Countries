@@ -8,12 +8,11 @@ import { AppState } from 'types'
 const Search = () => {
   const dispatch = useDispatch()
   const userInput = useSelector((state: AppState) => state.country.userInput)
-  console.log('userinput', userInput)
 
   return (
     <Input
       value={userInput}
-      placeholder={userInput}
+      placeholder="Search"
       onChange={e => {
         dispatch(filterCountries(e.target.value))
       }}

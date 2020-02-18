@@ -23,7 +23,6 @@ export function filterCountries(userInput: string): CountryActions {
 
 export function fetchCountriesThunk() {
   return async function(dispatch: Dispatch) {
-    console.log('api func running')
     const res = await fetch(`https://restcountries.eu/rest/v2/all`)
     const apiData = await res.json()
     return dispatch(fetchCountries(apiData))
