@@ -19,8 +19,8 @@ const AppBar = () => {
     <Bar position="sticky">
       <Toolbar className="appbar">
         <div className="appbar__left-group">
-          <Typography variant="h6" noWrap>
-            Redux Fun!
+          <Typography variant="h5" noWrap>
+            REDUX TORTURE
           </Typography>
           <div className="appbar__search">
             <Search />

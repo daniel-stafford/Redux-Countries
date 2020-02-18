@@ -10,5 +10,9 @@ export function* setLocalStorageWhenAddingCountry() {
     'allCountries',
     JSON.stringify(state.country.allCountries),
   )
+  yield localStorage.setItem(
+    'userInput',
+    JSON.stringify(state.country.userInput),
+  )
 }
 export default [takeLatest('*', setLocalStorageWhenAddingCountry)]

@@ -10,6 +10,7 @@ const initState: AppState = {
   country: {
     allCountries: [],
     filteredCountries: [],
+    userInput: '',
   },
   ui: {
     dialogOpen: {},
@@ -28,6 +29,7 @@ export default function makeStore(initialState = initState) {
   const storedFilteredCountries =
     localStorage.getItem('filteredCountries') || ''
   const storedCart = localStorage.getItem('cart') || ''
+  const storedUserInput = localStorage.getItem('userInput') || ''
 
   if (storedAllCountries)
     initialState.country.allCountries = JSON.parse(storedAllCountries)
@@ -35,6 +37,8 @@ export default function makeStore(initialState = initState) {
   if (storedFilteredCountries)
     initialState.country.filteredCountries = JSON.parse(storedFilteredCountries)
   if (storedCart) initialState.cart.inCart = JSON.parse(storedCart)
+  if (storedUserInput)
+    initialState.country.userInput = JSON.parse(storedUserInput)
 
   if (process.env.NODE_ENV === 'development') {
     if ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {

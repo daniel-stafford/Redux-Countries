@@ -81,6 +81,7 @@ export type CartActions =
 export type CountryState = {
   allCountries: Country[]
   filteredCountries: Country[]
+  userInput: string
 }
 
 export type CartState = {

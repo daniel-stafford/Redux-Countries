@@ -9,6 +9,7 @@ export default function country(
   state: CountryState = {
     allCountries: [],
     filteredCountries: [],
+    userInput: '',
   },
   action: CountryActions,
 ): CountryState {
@@ -20,15 +21,17 @@ export default function country(
         filteredCountries: action.payload,
       }
     case FILTER_COUNTRIES:
-      const userInput = action.payload.toLowerCase()
+      const userInput = action.payload
+      const cleanedUserInput = userInput.toLowerCase()
       const newFilteredCountries = state.allCountries.filter(
         country =>
-          country.name.toLowerCase().includes(userInput) ||
-          country.nativeName.toLowerCase().includes(userInput) ||
-          country.population < parseInt(userInput) ||
-          country.region.toLowerCase().includes(userInput),
+          country.name.toLowerCase().includes(cleanedUserInput) ||
+          country.nativeName.toLowerCase().includes(cleanedUserInput) ||
+          country.population < parseInt(cleanedUserInput) ||
+          country.region.toLowerCase().includes(cleanedUserInput),
       )
-      return { ...state, filteredCountries: newFilteredCountries }
+      let newState = { ...state, filteredCountries: newFilteredCountries }
+      return (newState = { ...newState, userInput })
     default:
       return state
   }

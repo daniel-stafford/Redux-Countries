@@ -1,14 +1,19 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Input from '@material-ui/core/Input'
 
 import { filterCountries } from 'redux/actions'
+import { AppState } from 'types'
 
 const Search = () => {
   const dispatch = useDispatch()
+  const userInput = useSelector((state: AppState) => state.country.userInput)
+  console.log('userinput', userInput)
+
   return (
     <Input
-      placeholder="Search..."
+      value={userInput}
+      placeholder={userInput}
       onChange={e => {
         dispatch(filterCountries(e.target.value))
       }}
