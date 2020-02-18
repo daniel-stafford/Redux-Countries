@@ -23,15 +23,14 @@ export default function country(
     case FILTER_COUNTRIES:
       const userInput = action.payload
       const cleanedUserInput = userInput.toLowerCase()
-      const newFilteredCountries = state.allCountries.filter(
+      const filteredCountries = state.allCountries.filter(
         country =>
           country.name.toLowerCase().includes(cleanedUserInput) ||
           country.nativeName.toLowerCase().includes(cleanedUserInput) ||
           country.population < parseInt(cleanedUserInput) ||
           country.region.toLowerCase().includes(cleanedUserInput),
       )
-      let newState = { ...state, filteredCountries: newFilteredCountries }
-      return (newState = { ...newState, userInput })
+      return { ...state, filteredCountries, userInput }
     default:
       return state
   }

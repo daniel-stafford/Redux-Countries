@@ -14,7 +14,9 @@ const TableRow = ({ country }: TableRowProps) => {
   const dispatch = useDispatch()
   const { inCart } = useSelector((state: AppState) => state.cart)
   const languages = country.languages.map(lang => (
-    <li key={lang.name}>{lang.name} </li>
+    <ul key={lang.name}>
+      <li>{lang.name} </li>
+    </ul>
   ))
   const handleClick = () => {
     dispatch(addToCart(country))
@@ -45,7 +47,7 @@ const TableRow = ({ country }: TableRowProps) => {
           variant="contained"
           color="primary"
           onClick={handleClick}
-          disabled={inCart.includes(country) ? true : false}
+          disabled={inCart.find(c => c.name === country.name) ? true : false}
         >
           Add
         </Button>

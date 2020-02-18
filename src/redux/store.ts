@@ -25,20 +25,8 @@ export default function makeStore(initialState = initState) {
   const middlewares = [sagaMiddleware, thunk]
   let composeEnhancers = compose
 
-  const storedAllCountries = localStorage.getItem('allCountries') || ''
-  const storedFilteredCountries =
-    localStorage.getItem('filteredCountries') || ''
-  const storedCart = localStorage.getItem('cart') || ''
-  const storedUserInput = localStorage.getItem('userInput') || ''
-
-  if (storedAllCountries)
-    initialState.country.allCountries = JSON.parse(storedAllCountries)
-
-  if (storedFilteredCountries)
-    initialState.country.filteredCountries = JSON.parse(storedFilteredCountries)
-  if (storedCart) initialState.cart.inCart = JSON.parse(storedCart)
-  if (storedUserInput)
-    initialState.country.userInput = JSON.parse(storedUserInput)
+  const savedStore = localStorage.getItem('store') || ''
+  if (savedStore) initialState = JSON.parse(savedStore)
 
   if (process.env.NODE_ENV === 'development') {
     if ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {

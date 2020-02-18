@@ -4,8 +4,6 @@ import { fetchCountriesThunk } from '../redux/actions'
 
 import { AppState } from 'types'
 
-//Check if the initial store state has received allCountries, otherwise run the API call.
-
 const useCountries = () => {
   const dispatch = useDispatch()
   const allCountries = useSelector(
