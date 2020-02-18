@@ -6,8 +6,8 @@ import { Button } from '@material-ui/core/'
 import ListItem from '@material-ui/core/ListItem'
 import Typography from '@material-ui/core/Typography'
 
-import { removeCart } from '../redux/actions'
-import Flag from './Flag'
+import { removeCart } from '../../redux/actions'
+import Flag from '../Flag'
 import { AppState } from 'types'
 
 const Basket = () => {

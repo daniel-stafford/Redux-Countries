@@ -1,0 +1,13 @@
+.appbar {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+
+.appbar__left-group {
+  display: flex;
+}
+
+.appbar__search {
+  margin-left: 30px;
+}
