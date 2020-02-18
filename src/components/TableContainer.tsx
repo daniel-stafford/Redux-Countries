@@ -12,10 +12,12 @@ import {
 import TableRow from 'components/TableRow'
 import TableHeader from 'components/TableHeader'
 import { AppState } from 'types'
+import useCountries from 'hooks/useCountries'
 
 const TableContainer = () => {
-  const allCountries = useSelector(
-    (state: AppState) => state.country.allCountries,
+  useCountries()
+  const filteredCountries = useSelector(
+    (state: AppState) => state.country.filteredCountries,
   )
 
   return (
@@ -28,7 +30,7 @@ const TableContainer = () => {
             </Row>
           </TableHead>
           <TableBody>
-            {allCountries.map(country => (
+            {filteredCountries.map(country => (
               <Row key={country.name}>
                 <TableRow country={country} />
               </Row>

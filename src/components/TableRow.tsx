@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { TableCell, Button } from '@material-ui/core/'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Flag from 'components/Flag'
-import { Country, AppState } from 'types'
-import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from 'redux/actions'
+import { Country, AppState } from 'types'
 
 type TableRowProps = {
   country: Country
@@ -19,6 +19,9 @@ const TableRow = ({ country }: TableRowProps) => {
   const handleClick = () => {
     dispatch(addToCart(country))
   }
+
+  if (!country && !inCart) return <div>Loading...</div>
+
   return (
     <>
       <TableCell>

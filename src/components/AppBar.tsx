@@ -11,14 +11,13 @@ import { useSelector } from 'react-redux'
 
 import Search from 'components/Search'
 import { AppState } from 'types'
-import useCart from 'hooks/useCart'
+import 'styles/index.css'
 
 const AppBar = () => {
-  useCart()
   const { inCart } = useSelector((state: AppState) => state.cart)
   return (
-    <Bar position="static">
-      <Toolbar>
+    <Bar position="sticky">
+      <Toolbar className="AppBar">
         <Typography variant="h6" noWrap>
           Redux Fun!
         </Typography>
@@ -37,7 +36,6 @@ const AppBar = () => {
             </Link>
           </Badge>
         </IconButton>
-        {/* <ToggleMode /> */}
       </Toolbar>
     </Bar>
   )

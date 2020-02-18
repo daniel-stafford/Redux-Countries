@@ -1,7 +1,7 @@
 import React from 'react'
 import { TableCell } from '@material-ui/core/'
 
-const labels = ['Flag', 'Name', 'Languages', 'Population', 'Region'] // move out of function body to avoid rerenders as this a non-primitive
+const labels = ['Flag', 'Name', 'Languages', 'Population', 'Region']
 
 const TableHeader = () => {
   return (

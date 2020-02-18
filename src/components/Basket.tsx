@@ -2,10 +2,13 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import BackButton from 'components/BackButton'
 import { useSelector, useDispatch } from 'react-redux'
-import { AppState } from 'types'
-import Flag from './Flag'
 import { Button } from '@material-ui/core/'
+import ListItem from '@material-ui/core/ListItem'
+import Typography from '@material-ui/core/Typography'
+
 import { removeCart } from '../redux/actions'
+import Flag from './Flag'
+import { AppState } from 'types'
 
 const Basket = () => {
   const history = useHistory()
@@ -15,11 +18,17 @@ const Basket = () => {
   return (
     <>
       {inCart.map(item => (
-        <li key={item.name}>
+        <ListItem key={item.name}>
           <Flag url={item.flag} countryName={item.name} />
-          {item.name}
-          <Button onClick={() => dispatch(removeCart(item))}>Remove</Button>
-        </li>
+          <Typography variant="h6">{item.name}</Typography>
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={() => dispatch(removeCart(item))}
+          >
+            Remove
+          </Button>
+        </ListItem>
       ))}
       <BackButton history={history} />
     </>

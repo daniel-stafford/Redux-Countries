@@ -6,10 +6,9 @@ import {
   CartActions,
   Country,
   FETCH_CART,
-  CountryInCart,
 } from '../../types'
 
-export function fetchCart(cart: CountryInCart[]): CartActions {
+export function fetchCart(cart: Country[]): CartActions {
   return {
     type: FETCH_CART,
     payload: cart,

@@ -6,10 +6,8 @@ import BackButton from 'components/BackButton'
 import Flag from 'components/Flag'
 import { useSelector } from 'react-redux'
 import { AppState } from 'types'
-import useCountries from 'hooks/useCountries'
 
 const CountryDetails = () => {
-  useCountries()
   const { name } = useParams()
   const history = useHistory()
   const [country] = useSelector(

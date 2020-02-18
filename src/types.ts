@@ -2,6 +2,7 @@
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
 export const FETCH_COUNTRIES = 'FETCH_COUNTRIES'
+export const FILTER_COUNTRIES = 'FILTER_COUNTRIES'
 export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
@@ -17,21 +18,24 @@ export type Country = {
   flag: string
   languages: Languages[]
   population: number
-  region?: string
-  nativeName?: string
-  alpha2Code?: string
+  region: string
+  nativeName: string
+  alpha2Code: string
 }
 
 export type Languages = {
   name: string
 }
 
-export type CountryInCart = {
-  flag: string
-  name: string
-  population: number
-  languages: Languages[]
-}
+// export type CountryInCart = {
+//   flag: string
+//   name: string
+//   population: number
+//   languages: Languages[]
+//   region: string
+//   nativeName: string
+//   alpha2Code: string
+// }
 
 export type FetchCountriesAction = {
   type: typeof FETCH_COUNTRIES
@@ -40,7 +44,12 @@ export type FetchCountriesAction = {
 
 export type FetchCartAction = {
   type: typeof FETCH_CART
-  payload: CountryInCart[]
+  payload: Country[]
+}
+
+export type FilterCountriesAction = {
+  type: typeof FILTER_COUNTRIES
+  payload: string
 }
 
 export type AddToCartAction = {
@@ -62,7 +71,7 @@ export type ToggleDialogAction = {
 
 export type UiActions = ToggleDialogAction
 
-export type CountryActions = FetchCountriesAction
+export type CountryActions = FetchCountriesAction | FilterCountriesAction
 
 export type CartActions =
   | AddToCartAction
@@ -75,7 +84,7 @@ export type CountryState = {
 }
 
 export type CartState = {
-  inCart: CountryInCart[] //TODO: FIX TYPO!!!!!!!!!
+  inCart: Country[]
 }
 
 // Using dynamic keys from an enum
