@@ -5,7 +5,8 @@ import {
   CountryActions,
   FETCH_COUNTRIES,
   FILTER_COUNTRIES,
-} from '../../types'
+  SORT_COUNTRIES,
+} from 'types'
 
 export function fetchCountries(allCountries: Country[]): CountryActions {
   return {
@@ -18,6 +19,13 @@ export function filterCountries(userInput: string): CountryActions {
   return {
     type: FILTER_COUNTRIES,
     payload: userInput,
+  }
+}
+
+export function sortCountries(selectedField: string): CountryActions {
+  return {
+    type: SORT_COUNTRIES,
+    payload: selectedField,
   }
 }
 

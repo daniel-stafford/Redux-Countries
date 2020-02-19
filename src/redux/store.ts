@@ -11,6 +11,8 @@ const initState: AppState = {
     allCountries: [],
     filteredCountries: [],
     userInput: '',
+    isAsc: false,
+    selectedField: 'name',
   },
   ui: {
     dialogOpen: {},

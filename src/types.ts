@@ -3,6 +3,7 @@ export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
 export const FETCH_COUNTRIES = 'FETCH_COUNTRIES'
 export const FILTER_COUNTRIES = 'FILTER_COUNTRIES'
+export const SORT_COUNTRIES = 'SORT_COUNTRIES'
 export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
@@ -36,6 +37,11 @@ export type FilterCountriesAction = {
   payload: string
 }
 
+export type SortCountriesAction = {
+  type: typeof SORT_COUNTRIES
+  payload: string
+}
+
 export type AddToCartAction = {
   type: typeof ADD_TO_CART
   payload: { country: Country }
@@ -55,7 +61,10 @@ export type ToggleDialogAction = {
 
 export type UiActions = ToggleDialogAction
 
-export type CountryActions = FetchCountriesAction | FilterCountriesAction
+export type CountryActions =
+  | FetchCountriesAction
+  | FilterCountriesAction
+  | SortCountriesAction
 
 export type CartActions = AddToCartAction | RemoveFromCartAction
 
@@ -63,6 +72,8 @@ export type CountryState = {
   allCountries: Country[]
   filteredCountries: Country[]
   userInput: string
+  isAsc: boolean
+  selectedField: string
 }
 
 export type CartState = {
