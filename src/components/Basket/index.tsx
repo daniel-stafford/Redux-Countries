@@ -14,7 +14,6 @@ const Basket = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const { inCart } = useSelector((state: AppState) => state.cart)
-
   return (
     <>
       {inCart.map(item => (

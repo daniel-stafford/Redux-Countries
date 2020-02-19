@@ -21,9 +21,6 @@ const TableRow = ({ country }: TableRowProps) => {
   const handleClick = () => {
     dispatch(addToCart(country))
   }
-
-  if (!country && !inCart) return <div>Loading...</div>
-
   return (
     <>
       <TableCell>

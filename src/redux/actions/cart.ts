@@ -1,9 +1,4 @@
-import {
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
-  CartActions,
-  Country,
-} from '../../types'
+import { ADD_TO_CART, REMOVE_FROM_CART, CartActions, Country } from 'types'
 
 export function addToCart(country: Country): CartActions {
   return {

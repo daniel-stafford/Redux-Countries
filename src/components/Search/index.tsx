@@ -8,7 +8,6 @@ import { AppState } from 'types'
 const Search = () => {
   const dispatch = useDispatch()
   const userInput = useSelector((state: AppState) => state.country.userInput)
-
   return (
     <Input
       value={userInput}

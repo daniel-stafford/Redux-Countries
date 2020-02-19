@@ -1,10 +1,10 @@
 import React from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { Typography } from '@material-ui/core'
+import { useSelector } from 'react-redux'
 
 import BackButton from 'components/BackButton'
 import Flag from 'components/Flag'
-import { useSelector } from 'react-redux'
 import useCountries from 'hooks/useCountries'
 import { AppState } from 'types'
 
@@ -32,4 +32,5 @@ const CountryDetails = () => {
 }
 
 CountryDetails.displayName = 'CountryDetails'
+
 export default CountryDetails

@@ -1,13 +1,8 @@
-import {
-  CartState,
-  CartActions,
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
-} from '../../types'
+import { CartState, CartActions, ADD_TO_CART, REMOVE_FROM_CART } from 'types'
 
 export default function cart(
   state: CartState = {
-    inCart: [],
+    inCart: [], //see comment in country reducer.
   },
   action: CartActions,
 ): CartState {

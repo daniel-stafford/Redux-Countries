@@ -13,7 +13,6 @@ const TableHeader = () => {
   const { selectedField, isAsc } = useSelector(
     (state: AppState) => state.country,
   )
-
   return (
     <>
       {labels.map(label => {

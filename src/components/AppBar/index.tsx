@@ -10,8 +10,8 @@ import { useSelector } from 'react-redux'
 
 import Search from 'components/Search'
 import ThemeToggle from 'components/ThemeToggle'
-import { AppState } from 'types'
 import 'components/AppBar/index.css'
+import { AppState } from 'types'
 
 const AppBar = () => {
   const { inCart } = useSelector((state: AppState) => state.cart)
@@ -54,4 +54,5 @@ const AppBar = () => {
 }
 
 AppBar.displayName = 'AppBar'
+
 export default AppBar

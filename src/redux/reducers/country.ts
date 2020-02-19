@@ -15,7 +15,7 @@ export default function country(
     userInput: '',
     isAsc: false,
     selectedField: 'name',
-  },
+  }, //if I delete this code (even though it's repeated in the store init), my app crashes with the error: country init state is undefined.
   action: CountryActions,
 ): CountryState {
   switch (action.type) {

@@ -10,15 +10,14 @@ import {
 
 import TableRow from 'components/TableRow'
 import TableHeader from 'components/TableHeader'
-import { AppState } from 'types'
 import useCountries from 'hooks/useCountries'
+import { AppState } from 'types'
 
 const TableContainer = () => {
   useCountries()
   const filteredCountries = useSelector(
     (state: AppState) => state.country.filteredCountries,
   )
-
   return (
     <>
       <Container>
