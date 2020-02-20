@@ -4,14 +4,14 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import AppBar from 'components/AppBar'
 import Home from 'pages/Home'
 import CountryDetails from 'pages/CountryDetails'
-import Basket from 'components/Basket'
+import Cart from 'pages/Cart'
 
 const Routes = () => (
   <BrowserRouter>
     <AppBar />
     <Switch>
       <Route path="/" component={Home} exact></Route>
-      <Route path="/basket/" component={Basket}></Route>
+      <Route path="/cart/" component={Cart}></Route>
       <Route path="/country/:name" component={CountryDetails}></Route>
     </Switch>
   </BrowserRouter>

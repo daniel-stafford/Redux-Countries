@@ -6,11 +6,13 @@ import { Button } from '@material-ui/core/'
 import ListItem from '@material-ui/core/ListItem'
 import Typography from '@material-ui/core/Typography'
 
-import { removeCart } from '../../redux/actions'
-import Flag from '../Flag'
+import { removeCart } from 'redux/actions'
+import useCountries from 'hooks/useCountries'
+import Flag from 'components/Flag'
 import { AppState } from 'types'
 
-const Basket = () => {
+const Cart = () => {
+  useCountries()
   const history = useHistory()
   const dispatch = useDispatch()
   const { inCart } = useSelector((state: AppState) => state.cart)
@@ -34,6 +36,6 @@ const Basket = () => {
   )
 }
 
-Basket.displayName = 'Basket'
+Cart.displayName = 'Cart'
 
-export default Basket
+export default Cart
