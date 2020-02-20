@@ -4,7 +4,7 @@ export const themes: any = {
   light: {
     palette: {
       primary: {
-        main: '#aeea00',
+        main: '#5b8c5a',
       },
       type: 'light',
     },
@@ -12,7 +12,7 @@ export const themes: any = {
   dark: {
     palette: {
       primary: {
-        main: '#1b5e20',
+        main: '#596157',
       },
       type: 'dark',
     },
