@@ -41,7 +41,7 @@ const AppBar = () => {
           <Badge badgeContent={inCart.length} color="secondary">
             <Link
               to={{
-                pathname: `/basket/`,
+                pathname: `/cart/`,
               }}
             >
               <ShoppingCartIcon />
