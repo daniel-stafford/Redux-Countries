@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import orderBy from 'lodash/orderBy'
 
 import {
   CountryState,
@@ -40,8 +40,8 @@ export default function country(
       const selectedField = action.payload
       const toggledIsAsc = !state.isAsc
       const sortedCountries = toggledIsAsc
-        ? _.orderBy(state.filteredCountries, [selectedField])
-        : _.orderBy(state.filteredCountries, [selectedField]).reverse()
+        ? orderBy(state.filteredCountries, [selectedField])
+        : orderBy(state.filteredCountries, [selectedField]).reverse()
       return {
         ...state,
         filteredCountries: sortedCountries,
