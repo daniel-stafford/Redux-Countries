@@ -1,9 +1,10 @@
 import React from 'react'
+import { History } from 'history'
 import IconButton from '@material-ui/core/IconButton'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
 type BackButtonProps = {
-  history: any
+  history: History
 }
 const BackButton = ({ history }: BackButtonProps) => {
   const handleGoBack = () => {
